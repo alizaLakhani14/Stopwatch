@@ -4,6 +4,7 @@ let hours = 0;
 let displaySeconds = 0;
 let displayMinutes = 0;
 let displayHours = 0;
+let isRunning = true;
 
 let stopWatch =  () => {
     seconds++;
@@ -37,10 +38,15 @@ let stopWatch =  () => {
 let Interval;
 
 let startStopWatch = () =>{
-   Interval = setInterval(stopWatch, 1000);
+    if(isRunning == true){
+        Interval = setInterval(stopWatch, 1000);
+        isRunning = false;
+    }
+   
 }
 let stopStopWatch =  () => {
     clearInterval(Interval);
+    isRunning = true;
 }
 
 let resetStopWatch = () =>{
